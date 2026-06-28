@@ -41,7 +41,6 @@ const AppContent = () => {
     }
   };
 
-  // Re-fetch whenever filters change. Initial load runs on mount.
   useEffect(() => {
     loadTasks();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -115,14 +114,40 @@ const AppContent = () => {
       </header>
 
       <main className="app-main">
-        <section className="panel panel--form">
-          <h2>{editingTask ? 'Edit entry' : 'New entry'}</h2>
-          <TaskForm
-            editingTask={editingTask}
-            onSubmit={editingTask ? handleUpdate : handleCreate}
-            onCancel={() => setEditingTask(null)}
-          />
-        </section>
+        <div className="app-main__primary">
+          <section className="panel panel--form">
+            <h2>{editingTask ? 'Edit entry' : 'New entry'}</h2>
+            <TaskForm
+              editingTask={editingTask}
+              onSubmit={editingTask ? handleUpdate : handleCreate}
+              onCancel={() => setEditingTask(null)}
+            />
+          </section>
+
+          <footer className="app-footer">
+            <div className="app-footer__brand">
+              <span className="app-footer__logo">Task Tracker</span>
+              <p className="app-footer__tagline">Stay on top of what matters.</p>
+            </div>
+
+            <nav className="app-footer__links">
+              <a href="#">About</a>
+              <a href="#">Privacy</a>
+              <a href="#">Terms</a>
+              <a href="#">Contact</a>
+            </nav>
+
+            <div className="app-footer__social">
+              <a href="https://github.com/vishalraj55/task-tracker" aria-label="GitHub">GitHub</a>
+              <a href="https://linkedin.com/in/vishalraj55" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+
+            <div className="app-footer__meta">
+              <span>&copy; {new Date().getFullYear()} Task Tracker. All rights reserved. Developed by Vishal Rajbhar</span>
+              <span>v1.0.0</span>
+            </div>
+          </footer>
+        </div>
 
         <section className="panel panel--list">
           <FilterBar filters={filters} onChange={setFilters} taskCount={tasks.length} />

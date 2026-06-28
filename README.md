@@ -1,7 +1,7 @@
-# Task Tracker — MERN Stack
+# Task Tracker - MERN Stack
 
 A full-stack task tracker built with MongoDB, Express, React (Vite), and Node.js.
-Tasks are modeled as "ticket" entries in an operations log — each one carries a
+Tasks are modeled as "ticket" entries in an operations log - each one carries a
 status, priority, and optional due date, with full CRUD, filtering, sorting,
 and toast notifications.
 
@@ -95,23 +95,23 @@ client-side (in `TaskForm.jsx`) so bad requests never reach the database.
 
 ## Deployment (the path you already know from HTTPilot/Frameloop)
 
-**Database — MongoDB Atlas**
+**Database - MongoDB Atlas**
 1. Create a free cluster, add a database user, and allow access from anywhere (`0.0.0.0/0`) for now.
-2. Copy the connection string — this is your `MONGO_URI`.
+2. Copy the connection string - this is your `MONGO_URI`.
 
-**Backend — Render**
+**Backend - Render**
 1. New Web Service → connect the `backend/` folder of this repo.
 2. Build command: `npm install` · Start command: `npm start`.
 3. Environment variables: `MONGO_URI`, `CLIENT_URL` (your Vercel URL once you have it), `NODE_ENV=production`.
-4. Render assigns the `PORT` env var automatically — `server.js` already reads `process.env.PORT`.
+4. Render assigns the `PORT` env var automatically - `server.js` already reads `process.env.PORT`.
 
-**Frontend — Vercel**
+**Frontend - Vercel**
 1. New Project → connect the `frontend/` folder.
 2. Framework preset: Vite. Build command: `npm run build`. Output dir: `dist`.
 3. Environment variable: `VITE_API_URL=https://<your-render-service>.onrender.com/api`.
 4. Once deployed, go back to Render and set `CLIENT_URL` to your Vercel domain so CORS allows it.
 
-Free Render services spin down when idle — the first request after a quiet
+Free Render services spin down when idle - the first request after a quiet
 period takes a few seconds to wake up. UptimeRobot ping (same trick you used
 for Frameloop) keeps it warm if you want snappier demos.
 
