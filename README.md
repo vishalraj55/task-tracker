@@ -25,6 +25,7 @@ task-tracker/
 │   ├── server.js
 │   └── .env.example
 └── frontend/
+    ├── public/logo.png
     ├── src/
     │   ├── api/taskApi.js          # all backend calls live here
     │   ├── context/ToastContext.jsx
